@@ -4,7 +4,7 @@
 echo (
 	new UrlQuery('https://user:pass@example.org/?test=this&this=too')
 )->add(['other' => 'something', 'other2' => 'something2'])
- ->remove(['test', 'other2']);
+	->remove(['test', 'other2']);
 */
 
 class UrlQuery {
@@ -25,6 +25,12 @@ class UrlQuery {
 
 	public function remove(array $input) {
 		$this->extractedQuery = array_diff_key($this->extractedQuery, array_flip($input));
+		return $this;
+	}
+
+	public function removeAll() {
+		unset($this->url['query']);
+		$this->extractedQuery = [];
 		return $this;
 	}
 
