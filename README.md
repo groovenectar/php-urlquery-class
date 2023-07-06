@@ -25,5 +25,5 @@ echo (
 ```lang=php
 echo (new UrlQuery)->add(['token' => 'abc123']);
 
-// Output: https://my.current/url/?already=there?token=abc123
+// Output: https://my.current/url/?already=there&token=abc123
 ```
